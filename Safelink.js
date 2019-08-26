@@ -120,12 +120,11 @@ function auto_safeconvert() {
     /*TAMBAH DISINI LINK POSTINGANNYA*/
     
     var daftarPostingan = [
-      "https://linkwibu.site/2019/08/09/google-stadia-will-offer-more-or-less-one-unfastened-recreation-in-step-with-month/",
-      "https://linkwibu.site/2019/08/09/batman-beyond-why-we-nonetheless-love-it-two-decades-later-comic-con-2019/",
-      "https://linkwibu.site/2019/08/09/super-mario-maker-2-is-june-2019s-great-selling-game/",
-	  "https://linkwibu.site/2019/08/09/marvels-avengers-kamala-khans-ms-wonder-reputedly-teased-comic-con-2019/",
-	  "https://linkwibu.site/2019/08/09/hearthstone-behind-the-curtain-with-reno-jacksons-voice-actor/",
-	  "https://linkwibu.site/2019/08/09/netflixs-the-witcher-is-bringing-politics-intercourse-and-monsters/",
+      "https://linkwibu.site/google-stadia-will-offer-more-or-less-one-unfastened-recreation-in-step-with-month/",
+      "https://linkwibu.site/batman-beyond-why-we-nonetheless-love-it-two-decades-later-comic-con-2019/",
+      "https://linkwibu.site/super-mario-maker-2-is-june-2019s-great-selling-game/",
+      "https://linkwibu.site/super-mario-maker-2-is-june-2019s-great-selling-game/",
+      "https://linkwibu.site/marvels-avengers-kamala-khans-ms-wonder-reputedly-teased-comic-con-2019/",
     ];
     /* Jika ingin menambah postingan, copas saja */
 
