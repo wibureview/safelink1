@@ -4,7 +4,7 @@ var Base64 = {
         var output = "";
         var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
         var i = 0;
-        input = Base64._utf8_encode(input);
+        input = Base64.\_utf8\_encode(input);
         while (i < input.length) {
             chr1 = input.charCodeAt(i++);
             chr2 = input.charCodeAt(i++);
@@ -18,7 +18,7 @@ var Base64 = {
             } else if (isNaN(chr3)) {
                 enc4 = 64;
             }
-            output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+            output = output + this.\_keyStr.charAt(enc1) + this.\_keyStr.charAt(enc2) + this.\_keyStr.charAt(enc3) + this.\_keyStr.charAt(enc4);
         }
         return output;
     },
@@ -27,7 +27,7 @@ var Base64 = {
         var chr1, chr2, chr3;
         var enc1, enc2, enc3, enc4;
         var i = 0;
-        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+        input = input.replace(/\[^A-Za-z0-9+/=\]/g, "");
         while (i < input.length) {
             enc1 = this._keyStr.indexOf(input.charAt(i++));
             enc2 = this._keyStr.indexOf(input.charAt(i++));
@@ -44,11 +44,11 @@ var Base64 = {
                 output = output + String.fromCharCode(chr3);
             }
         }
-        output = Base64._utf8_decode(output);
+        output = Base64.\_utf8\_decode(output);
         return output;
     },
-    _utf8_encode: function (string) {
-        string = string.replace(/\r\n/g, "\n");
+    \_utf8\_encode: function (string) {
+        string = string.replace(/rn/g, "n");
         var utftext = "";
         for (var n = 0; n < string.length; n++) {
             var c = string.charCodeAt(n);
@@ -65,7 +65,7 @@ var Base64 = {
         }
         return utftext;
     },
-    _utf8_decode: function (utftext) {
+    \_utf8\_decode: function (utftext) {
         var string = "";
         var i = 0;
         var c = c1 = c2 = 0;
@@ -94,31 +94,29 @@ var encode = document.getElementById('encode'),
     input = document.getElementById('input');
 var User_ID = "";
 var protected_links = "";
-var a_to_va = 0;
-var a_to_vb = 0;
-var a_to_vc = "";
-
+var a\_to\_va = 0;
+var a\_to\_vb = 0;
+var a\_to\_vc = "";
 function auto_safelink() {
     auto_safeconvert();
 }
-
 function auto_safeconvert() {
-    var a_to_vd = window.location.hostname;
-    if (protected_links != "" && !protected_links.match(a_to_vd)) {
-        protected_links += ", " + a_to_vd;
+    var a\_to\_vd = window.location.hostname;
+    if (protected\_links != "" && !protected\_links.match(a\_to\_vd)) {
+        protected\_links += ", " + a\_to_vd;
     } else if (protected_links == "") {
-        protected_links = a_to_vd;
+        protected\_links = a\_to_vd;
     }
-    var a_to_ve = "";
-    var a_to_vf = new Array();
-    var a_to_vg = 0;
-    a_to_ve = document.getElementsByTagName("a");
-    a_to_va = a_to_ve.length;
-    a_to_vf = a_to_fa();
-    a_to_vg = a_to_vf.length;
-    var a_to_vh = false;
+    var a\_to\_ve = "";
+    var a\_to\_vf = new Array();
+    var a\_to\_vg = 0;
+    a\_to\_ve = document.getElementsByTagName("a");
+    a\_to\_va = a\_to\_ve.length;
+    a\_to\_vf = a\_to\_fa();
+    a\_to\_vg = a\_to\_vf.length;
+    var a\_to\_vh = false;
     var j = 0;
-
+	
     /*TAMBAH DISINI LINK POSTINGANNYA*/
     
     var daftarPostingan = [
@@ -132,38 +130,37 @@ function auto_safeconvert() {
     /* Jika ingin menambah postingan, copas saja */
 
     var randomPostingan = daftarPostingan[Math.floor(Math.random()*daftarPostingan.length)];
-    var a_to_vi = "";
-    for (var i = 0; i < a_to_va; i++) {
-        a_to_vh = false;
+    var a\_to\_vi = "";
+    for (var i = 0; i < a\_to\_va; i++) {
+        a\_to\_vh = false;
         j = 0;
-        while (a_to_vh == false && j < a_to_vg) {
-            a_to_vi = a_to_ve[i].href;
-            if (a_to_vi.match(a_to_vf[j]) || !a_to_vi || !a_to_vi.match("http")) {
-                a_to_vh = true;
+        while (a\_to\_vh == false && j < a\_to\_vg) {
+            a\_to\_vi = a\_to\_ve\[i\].href;
+            if (a\_to\_vi.match(a\_to\_vf\[j\]) || !a\_to\_vi || !a\_to\_vi.match("http")) {
+                a\_to\_vh = true;
             }
             j++;
         }
-        if (a_to_vh == false) {
-            var encryptedUrl = Base64.encode(a_to_vi);
-            a_to_ve[i].href = randomPostingan + "?url=" + encryptedUrl;
-            a_to_ve[i].rel = "nofollow";
-            a_to_vb++;
-            a_to_vc += i + ":::" + a_to_ve[i].href + "\n";
+        if (a\_to\_vh == false) {
+            var encryptedUrl = Base64.encode(a\_to\_vi);
+            a\_to\_ve\[i\].href = randomPostingan + "?url=" + encryptedUrl;
+            a\_to\_ve\[i\].rel = "nofollow";
+            a\_to\_vb++;
+            a\_to\_vc += i + ":::" + a\_to\_ve\[i\].href + "n";
         }
     }
-    var a_to_vj = document.getElementById("anonyminized");
-    var a_to_vk = document.getElementById("found_links");
-    if (a_to_vj) {
-        a_to_vj.innerHTML += a_to_vb;
+    var a\_to\_vj = document.getElementById("anonyminized");
+    var a\_to\_vk = document.getElementById("found_links");
+    if (a\_to\_vj) {
+        a\_to\_vj.innerHTML += a\_to\_vb;
     }
-    if (a_to_vk) {
-        a_to_vk.innerHTML += a_to_va;
+    if (a\_to\_vk) {
+        a\_to\_vk.innerHTML += a\_to\_va;
     }
 }
-
-function a_to_fa() {
-    var a_to_vf = new Array();
-    protected_links = protected_links.replace(" ", "");
-    a_to_vf = protected_links.split(",");
-    return a_to_vf;
+function a\_to\_fa() {
+    var a\_to\_vf = new Array();
+    protected\_links = protected\_links.replace(" ", "");
+    a\_to\_vf = protected_links.split(",");
+    return a\_to\_vf;
 }
